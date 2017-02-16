@@ -25,14 +25,14 @@
 
 <div [hidden]="!(af.auth | async)">Hi {{ user.auth?.email }} 
 
-	<button ion-button round lArge (click)="logout()">Logout
+	<button ion-button icon-left color="light" (click)="logout()"><ion-icon name="logo-google"></ion-icon>Logout
 	</button> 
 
 </div>
 
 <div [hidden]="af.auth | async">
 	
-	<button ion-button round large (click)="login()">Login
+	<button ion-button icon-left color="light" (click)="login()"><ion-icon name="logo-google"></ion-icon>Login
 	</button>
 
 </div>
