@@ -5,26 +5,18 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { PostPage } from '../pages/post/post';
+import { Data } from '../providers/data';
+import { AngularFireModule } from 'angularfire2';
+import { ConnectionComponent } from '../components/connection/connection'
 
-// Import the AF2 Module
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
-
-// AF2 Settings
-export const firebaseConfig = {
-    apiKey: "AIzaSyCvIeTLt_navIsnvRQAb-yHFmEfAPnDoZA",
-    authDomain: "fir-stuff-40bcf.firebaseapp.com",
-    databaseURL: "https://fir-stuff-40bcf.firebaseio.com/",
-    storageBucket: "fir-stuff-40bcf.appspot.com",
-    messagingSenderId: "695531012598"
-};
-
-const myFirebaseAuthConfig = {
-  provider: AuthProviders.Google,
-  method: AuthMethods.Redirect, 
-  scope: ['email','id','name','picture'],
-  offline: true
-};
-
+const config = {
+    apiKey: "AIzaSyD6qBJuMZmh8ouKycWIGRC85gs3GoPV_ec",
+    authDomain: "barapp-90893.firebaseapp.com",
+    databaseURL: "https://barapp-90893.firebaseio.com",
+    storageBucket: "barapp-90893.appspot.com",
+    messagingSenderId: "330038628477"
+  };
 
 @NgModule({
   declarations: [
@@ -32,11 +24,13 @@ const myFirebaseAuthConfig = {
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    PostPage,
+    ConnectionComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-	AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,8 +38,9 @@ const myFirebaseAuthConfig = {
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    PostPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data]
 })
 export class AppModule {}

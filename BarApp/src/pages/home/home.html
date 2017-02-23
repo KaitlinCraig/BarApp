@@ -1,40 +1,19 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Home
-    </ion-title>
-    <ion-buttons end>
-  <button ion-button icon-only (click)="addSong()">
-    <ion-icon name="add"></ion-icon>
-  </button>
-</ion-buttons>
+    <connection></connection>
+    <ion-title>Feed</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<ion-buttons end>
-  <button ion-button icon-only (click)="addSong()" [hidden]="!(af.auth | async)">
-    <ion-icon name="add"></ion-icon>
-  </button>
-</ion-buttons>
-<ion-list>
-  <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.$key, song.title)">
-    {{song.title}}
-  </ion-item>
-</ion-list>
-
-<div [hidden]="!(af.auth | async)">Hi {{ user.auth?.email }} 
-
-	<button ion-button icon-left color="light" (click)="logout()"><ion-icon name="logo-google"></ion-icon>Logout
-	</button> 
-
-</div>
-
-<div [hidden]="af.auth | async">
-	
-	<button ion-button icon-left color="light" (click)="login()"><ion-icon name="logo-google"></ion-icon>Login
-	</button>
-
-</div>
-
+  <ion-card *ngFor= "let card of posts | async">
+    <ion-card-content>
+      <ion-card-title>
+        {{card.title}}
+      </ion-card-title>
+      <p>
+        {{card.body}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
