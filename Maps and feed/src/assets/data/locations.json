@@ -1,0 +1,50 @@
+{
+  "locations": [
+
+    {
+      "title": "Tooey's",
+      "latitude": 33.969578,
+      "longitude": -84.036470
+    },
+    {
+      "title": "The Thirsty Turtle",
+      "latitude": 34.081767,
+      "longitude": -83.997807
+    },
+    {
+      "title": "Hooters",
+      "latitude": 34.061715,
+      "longitude": -83.987066
+    },
+    {
+      "title": "Sporstsline Bar and Grill",
+      "latitude": 33.966472,
+      "longitude": -84.033720
+    },
+    {
+      "title": "Off the Hookah",
+      "latitude": 33.975065,
+      "longitude": -84.079325
+    },
+    {
+      "title": "Olde Towne Tavern & Grille",
+      "latitude": 33.968955,
+      "longitude": -84.020810
+    },
+    {
+      "title": "Vice Lounge",
+      "latitude": 34.039273,
+      "longitude": -84.053859
+    },
+    {
+      "title": "Mirza Hookah Lounge",
+      "latitude": 33.946475,
+      "longitude": -84.081316
+    },
+    {
+      "title": "McCray’s Tavern on the Square",
+      "latitude": 33.956347,
+      "longitude": -83.989931
+    }
+  ]
+}
