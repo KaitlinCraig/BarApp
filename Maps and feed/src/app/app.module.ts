@@ -11,6 +11,8 @@ import { FeedPage } from '../pages/feed/feed';
 import { PostPage } from '../pages/post/post';
 import { Data } from '../providers/data';
 import { AngularFireModule } from 'angularfire2';
+import { SettingsPage } from '../pages/settings/settings';
+import { AccountPage } from '../pages/account/account';
 
 const config = {
     apiKey: "AIzaSyD6qBJuMZmh8ouKycWIGRC85gs3GoPV_ec",
@@ -27,7 +29,9 @@ const config = {
     MapPage,
     ListPage,
     PostPage,
-    FeedPage
+    FeedPage,
+    SettingsPage,
+    AccountPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -40,7 +44,9 @@ const config = {
     MapPage,
     ListPage,
     PostPage,
-    FeedPage
+    FeedPage,
+    SettingsPage,
+    AccountPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Locations, GoogleMaps, Connectivity, Data]
 })
