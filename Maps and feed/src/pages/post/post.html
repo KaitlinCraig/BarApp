@@ -25,15 +25,15 @@
       </ion-item>
 
       <ion-item>
+        <!-- <ion-card>
+          <ion-card-content> -->
+          <img [src]="base64Image"  *ngIf="base64Image"/>
 
-
-
-        Latest Picture:
-        <img [src]="base64Image" *ngIf="base64Image" />
-
+          <!-- </ion-card-content> -->
+          <button (click)="takePicture()">Take a Picture</button>
+        <!-- </ion-card> -->
       </ion-item>
-      
+
       <button ion-button full (click)="submit()">Submit</button>
     </ion-list>
-    <button (click)="takePicture()">Take a Picture</button>
 </ion-content>
