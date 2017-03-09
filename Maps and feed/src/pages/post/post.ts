@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { AngularFire } from 'angularfire2';
+import {Camera} from 'ionic-native';
 /*
   Generated class for the Post page.
 
@@ -10,11 +11,25 @@ import { AngularFire } from 'angularfire2';
 class Post {
   title: string
   body: string
+  base64Image
   id: string
 
 
   constructor() {
 
+  }
+
+  takePicture(){
+    Camera.getPicture({
+        destinationType: Camera.DestinationType.DATA_URL,
+        targetWidth: 1000,
+        targetHeight: 1000
+    }).then((imageData) => {
+      // imageData is a base64 encoded string
+        this.base64Image = "data:image/jpeg;base64," + imageData;
+    }, (err) => {
+        console.log(err);
+    });
   }
 }
 

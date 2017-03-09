@@ -3,7 +3,8 @@ import { Connectivity } from './connectivity';
 import { Geolocation } from 'ionic-native';
 
 declare var google;
-
+declare var service;
+// declare var callback;
 @Injectable()
 export class GoogleMaps {
 
@@ -100,16 +101,38 @@ export class GoogleMaps {
 
         let mapOptions = {
           center: latLng,
-          zoom: 15,
+          zoom: 13,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
+
+        let request = {
+        location: latLng,
+        radius: '500',
+        types: ['bar']
+       };
 
         this.map = new google.maps.Map(this.mapElement, mapOptions);
         resolve(true);
 
+        console.log(callback);
+        console.log(request);
+        console.log(mapOptions);
+        console.log(this.mapElement);
+
+        function callback(results, status) {
+          if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+              var place = results[i];
+              this.addMarker(results[i]);
+            }
+          }
+        }
+
       });
     });
   }
+
+
 
 
   disableMap(): void {

@@ -23,6 +23,17 @@
         <ion-label floating>Body</ion-label>
         <ion-input type="text" [(ngModel)]="post.body"></ion-input>
       </ion-item>
+
+      <ion-item>
+
+
+
+        Latest Picture:
+        <img [src]="base64Image" *ngIf="base64Image" />
+
+      </ion-item>
+      
       <button ion-button full (click)="submit()">Submit</button>
     </ion-list>
+    <button (click)="takePicture()">Take a Picture</button>
 </ion-content>
