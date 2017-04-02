@@ -15,44 +15,55 @@ export class Locations {
 
     load(){
 
+
         if(this.data){
             return Promise.resolve(this.data);
         }
 
         return new Promise(resolve => {
 
-            this.http.get('assets/data/locations.json').map(res => res.json()).subscribe(data => {
+          Geolocation.getCurrentPosition().then((position) => {
+            this.http.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+ position.coords.latitude+ "," + position.coords.longitude + "&radius=10000&type=bar|nightclub&key=AIzaSyBJ1aRMP6ClcWzK3WbGgUWF9q820Y5VB8k")
+            .map(res => {
+              return res.json().results.map((item) => {
+                return item;
+              })
+            })
+            .subscribe(data => {
+                console.log(data);
 
-                this.data = this.applyHaversine(data.locations);
+
+                this.data = this.applyHaversine(data);
 
                 this.data.sort((locationA, locationB) => {
                     return locationA.distance - locationB.distance;
-
                 });
 
                 resolve(this.data);
             });
         });
+      });
     }
+
+
 
     applyHaversine(locations){
 
-        Geolocation.getCurrentPosition().then((position) => {
+      Geolocation.getCurrentPosition().then((position) => {
+        let usersLocation = {
 
-                 let usersLocation = {
                             lat: position.coords.latitude,
                             lng: position.coords.longitude
-                        };
-                 console.log(position.coords.latitude);
-                 console.log(position.coords.longitude);
+
+                 };
 
 
 
         locations.map((location) => {
 
             let placeLocation = {
-                lat: location.latitude,
-                lng: location.longitude
+                lat: location.geometry.location.lat,
+                lng: location.geometry.location.lng
             };
 
             location.distance = this.getDistanceBetweenPoints(
@@ -61,10 +72,9 @@ export class Locations {
                 'miles'
             ).toFixed(2);
         });
-
-        });
+        
+      });
         return locations;
-
     }
 
     getDistanceBetweenPoints(start, end, units){

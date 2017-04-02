@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Connectivity } from './connectivity';
 import { Geolocation } from 'ionic-native';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import {Http} from '@angular/http';
 
 declare var google;
 declare var service;
@@ -8,6 +12,7 @@ declare var service;
 @Injectable()
 export class GoogleMaps {
 
+  items : any;
   mapElement: any;
   pleaseConnect: any;
   map: any;
@@ -17,8 +22,13 @@ export class GoogleMaps {
   markers: any = [];
   apiKey: "AIzaSyBG5s4tly4GEsWjpTKzZcK8YJL_RDmeCZU";
 
-  constructor(public connectivityService: Connectivity) {
-
+  constructor(public connectivityService: Connectivity, private http: Http) {
+    // this.http.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.979080,-84.005416&radius=10000&type=bar|nightclub&key=AIzaSyBJ1aRMP6ClcWzK3WbGgUWF9q820Y5VB8k").map(res=>res.json().results).subscribe(data => {
+    // console.log("Got data");
+    // this.items= JSON.parse(data['_body']).results;
+    // console.log(this.items);
+    // console.log(data);
+    // });
   }
 
   init(mapElement: any, pleaseConnect: any): Promise<any> {
@@ -89,15 +99,11 @@ export class GoogleMaps {
 
       Geolocation.getCurrentPosition().then((position) => {
 
-
-
         // UNCOMMENT FOR NORMAL USE
         let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
         //let latLng = new google.maps.LatLng(40.713744, -74.009056);
 
-         console.log(position.coords.latitude);
-         console.log(position.coords.longitude);
 
         let mapOptions = {
           center: latLng,
@@ -107,9 +113,10 @@ export class GoogleMaps {
 
         let request = {
         location: latLng,
-        radius: '500',
-        types: ['bar']
+        radius: '100000',
+        types: ['geocode']
        };
+
 
         this.map = new google.maps.Map(this.mapElement, mapOptions);
         resolve(true);
@@ -197,5 +204,4 @@ export class GoogleMaps {
     this.markers.push(marker);
 
   }
-
 }
