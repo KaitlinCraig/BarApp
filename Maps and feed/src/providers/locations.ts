@@ -30,15 +30,20 @@ export class Locations {
               })
             })
             .subscribe(data => {
-                console.log(data);
-
 
                 this.data = this.applyHaversine(data);
+                  console.log(this.data);
 
-                this.data.sort((locationA, locationB) => {
-                    return locationA.distance - locationB.distance;
+                this.data.sort((locationA, locationB)=> {
+                  console.log(locationA.name);
+                    if (locationA.name < locationB.name) return -1;
+                    if (locationA.name > locationB.name) return 1;
+                    return 0;
+                    //rating works
+                    //name works
+                    //distance isnt working because it is blocked by geolocaiton
                 });
-
+                  console.log(this.data);
                 resolve(this.data);
             });
         });
@@ -52,12 +57,10 @@ export class Locations {
       Geolocation.getCurrentPosition().then((position) => {
         let usersLocation = {
 
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
 
-                 };
-
-
+        };
 
         locations.map((location) => {
 
@@ -72,7 +75,7 @@ export class Locations {
                 'miles'
             ).toFixed(2);
         });
-        
+
       });
         return locations;
     }
