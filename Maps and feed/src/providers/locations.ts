@@ -32,10 +32,10 @@ export class Locations {
             .subscribe(data => {
 
                 this.data = this.applyHaversine(data);
-                  console.log(this.data);
+                console.log(this.data);
 
                 this.data.sort((locationA, locationB)=> {
-                  console.log(locationA.name);
+
                     if (locationA.name < locationB.name) return -1;
                     if (locationA.name > locationB.name) return 1;
                     return 0;
@@ -43,7 +43,7 @@ export class Locations {
                     //name works
                     //distance isnt working because it is blocked by geolocaiton
                 });
-                  console.log(this.data);
+
                 resolve(this.data);
             });
         });
