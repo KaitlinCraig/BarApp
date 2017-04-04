@@ -13,6 +13,9 @@ import { Data } from '../providers/data';
 import { AngularFireModule } from 'angularfire2';
 import { SettingsPage } from '../pages/settings/settings';
 import { AccountPage } from '../pages/account/account';
+import { AuthProvider} from '../providers/auth-provider'  //Added AuthProvider
+import { SignupPage } from '../pages/signup/signup'; //Added signup page
+import { ResetPasswordPage } from '../pages/reset-password/reset-password'; //Added reset password page
 
 const config = {
     apiKey: "AIzaSyD6qBJuMZmh8ouKycWIGRC85gs3GoPV_ec",
@@ -31,7 +34,9 @@ const config = {
     PostPage,
     FeedPage,
     SettingsPage,
-    AccountPage
+    AccountPage,
+    SignupPage,  //Added signup page
+    ResetPasswordPage //Added
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -46,8 +51,10 @@ const config = {
     PostPage,
     FeedPage,
     SettingsPage,
-    AccountPage
+    AccountPage,
+    SignupPage,  //Added signup page
+    ResetPasswordPage //Added
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Locations, GoogleMaps, Connectivity, Data]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Locations, GoogleMaps, Connectivity, Data, AuthProvider]
 })
 export class AppModule {}
