@@ -12,12 +12,13 @@
 
   <ion-list>
     <ion-item *ngFor="let location of locations.data " (click)="presentAlert(location)">
-      
+
       <ion-avatar item-left>
         <ion-icon name="pin"></ion-icon>
       </ion-avatar>
 
       <h1>{{location.name}}</h1>
+      <!-- <h1>{{location.id}}</h1> -->
 
       <!-- <p>Rating: {{location.rating}}</p> -->
       Rating:

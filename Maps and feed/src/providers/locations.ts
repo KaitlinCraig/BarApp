@@ -23,7 +23,8 @@ export class Locations {
         return new Promise(resolve => {
 
           Geolocation.getCurrentPosition().then((position) => {
-            this.http.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+ position.coords.latitude+ "," + position.coords.longitude + "&radius=10000&type=night_club&key=AIzaSyBJ1aRMP6ClcWzK3WbGgUWF9q820Y5VB8k")
+            // this.http.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+ position.coords.latitude+ "," + position.coords.longitude + "&radius=10000&type=night_club&key=AIzaSyBJ1aRMP6ClcWzK3WbGgUWF9q820Y5VB8k")
+            this.http.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.837266,-84.406761&radius=10000&type=night_club&key=AIzaSyBJ1aRMP6ClcWzK3WbGgUWF9q820Y5VB8k")
             .map(res => {
               return res.json().results.map((item) => {
                 return item;
