@@ -55,7 +55,7 @@ export class PostPage {
 
 
   submit() {
-    this.af.database.list('/posts').push(this.post)
+    this.af.database.list('/posts2').push(this.post)
     this.post = new Post()
     this.navCtrl.parent.select(3)
   }
