@@ -1,6 +1,8 @@
 <ion-tabs color="light">
-  <ion-tab [root]="tab1Root" tabTitle="Map" tabIcon="ios-navigate"></ion-tab>
+  <!-- <ion-tab [root]="tab1Root" tabTitle="Map" tabIcon="ios-navigate"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Bars" tabIcon="ios-beer"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="Post" tabIcon="ios-images"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="Feed" tabIcon="ios-list-box"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="Feed" tabIcon="ios-list-box"></ion-tab> -->
+  <ion-tab tabIcon="chatboxes" #content tabTitle="Bars" [root]="barsPage" tabBadge="{{newBars}}" tabBadgeStyle="danger"></ion-tab>
+  <ion-tab tabIcon="person" #content tabTitle="Profile" [root]="profilePage"></ion-tab>
 </ion-tabs>

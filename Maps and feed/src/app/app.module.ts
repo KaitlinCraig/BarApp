@@ -1,5 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
@@ -17,6 +19,17 @@ import { AuthProvider} from '../providers/auth-provider'  //Added AuthProvider
 import { SignupPage } from '../pages/signup/signup'; //Added signup page
 import { ResetPasswordPage } from '../pages/reset-password/reset-password'; //Added reset password page
 import { ReviewPage } from '../pages/review/review';
+import { BarCreatePage } from '../pages/bar-create/bar-create';
+import { ReviewCreatePage } from '../pages/review-create/review-create';
+import { BarReviewsPage } from '../pages/bar-reviews/bar-reviews';
+import { BarComponent } from '../components/bar.component';
+import { UserAvatarComponent } from '../components/user-avatar.component';
+import { BarsPage } from '../pages/bars/bars';
+import { ProfilePage } from '../pages/profile/profile';
+import { ItemsService } from '../providers/items.service';
+import { SqliteService } from '../providers/sqlite.service';
+import { MappingsService } from '../providers/mappings.service';
+import { DataService } from '../providers/data.service';
 
 const config = {
     apiKey: "AIzaSyD6qBJuMZmh8ouKycWIGRC85gs3GoPV_ec",
@@ -38,11 +51,20 @@ const config = {
     AccountPage,
     SignupPage,  //Added signup page
     ResetPasswordPage, //Added
-    ReviewPage
+    ReviewPage,
+    BarCreatePage,
+    ReviewCreatePage,
+    BarReviewsPage,
+    BarComponent,
+    UserAvatarComponent,
+    BarsPage,
+    ProfilePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(config)
+    AngularFireModule.initializeApp(config),
+    HttpModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,8 +78,22 @@ const config = {
     AccountPage,
     SignupPage,  //Added signup page
     ResetPasswordPage, //Added
-    ReviewPage
+    ReviewPage,
+    BarCreatePage,
+    ReviewCreatePage,
+    BarReviewsPage,
+    BarsPage,
+    ProfilePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Locations, GoogleMaps, Connectivity, Data, AuthProvider]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
+    Locations,
+    GoogleMaps,
+    Connectivity,
+    Data,
+    AuthProvider,
+    DataService,
+    ItemsService,
+    SqliteService,
+    MappingsService]
 })
 export class AppModule {}

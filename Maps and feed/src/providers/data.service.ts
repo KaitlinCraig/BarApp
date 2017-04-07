@@ -200,5 +200,5 @@ export class DataService {
       getUserReviews(userUid: string) {
           return this.reviewsRef.orderByChild('user/uid').equalTo(userUid).once('value');
       }
-    
+
 }

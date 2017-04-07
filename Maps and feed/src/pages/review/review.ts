@@ -4,7 +4,7 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { AuthProvider } from '../../providers/auth-provider';
-import { Data } from '../../providers/data';
+
 
 class Bar {
   barName: string
@@ -41,8 +41,7 @@ export class ReviewPage {
       public navParams: NavParams,
       public af: AngularFire,
       public nav: NavController,
-      public auth: AuthProvider,
-      public dataService: Data)
+      public auth: AuthProvider)
     {
     this.BarName = this.navParams.get('barName');
     this.BarId = this.navParams.get('barId');

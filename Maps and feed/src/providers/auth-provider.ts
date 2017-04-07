@@ -97,7 +97,11 @@ export class AuthProvider {
     return this.authState?this.authState.auth.email:'';
   }
 
-  // getLoggedInUser() {
-  //       return firebase.auth().currentUser;
-  //   }
+  getLoggedInUser() {
+        return firebase.auth().currentUser;
+    }
+
+  onAuthStateChanged(callback) {
+          return firebase.auth().onAuthStateChanged(callback);
+  }  
 }

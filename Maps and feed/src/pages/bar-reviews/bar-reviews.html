@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Reviews</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="showReviewActions()">
+        <ion-icon name="options"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="!commentsLoaded">
+        <img src="assets/images/ring.gif" style="display:block; margin:auto" />
+    </div>
+    <ion-list *ngIf="reviewsLoaded">
+        <ion-item *ngFor="let review of reviews" text-wrap>
+            <ion-card>
+
+                <ion-item>
+                    <ion-avatar item-left>
+                        <forum-user-avatar [user]="review.user"></forum-user-avatar>
+                    </ion-avatar>
+                    <h2>{{review.user.username}}</h2>
+                    <p>{{review.dateCreated | date:'medium'}}</p>
+                </ion-item>
+
+                <ion-card-content class="left-border-primary">
+                    <p>{{review.text}}</p>
+                </ion-card-content>
+
+                <ion-row class="left-border-primary">
+                    <ion-col>
+                        <button ion-button primary clear small (click)="vote(true,reviewt)">
+        <ion-icon name="arrow-dropup"></ion-icon>
+        <div>{{review.votesUp}}</div>
+      </button>
+                    </ion-col>
+                    <ion-col>
+                        <button ion-button primary clear small (click)="vote(false,review)">
+        <ion-icon name="arrow-dropdown"></ion-icon>
+        <div>{{review.votesDown}}</div>
+      </button>
+                    </ion-col>
+                    <ion-col center text-center>
+                        <ion-note>
+                            {{review.dateCreated | date:"MM/dd/yy"}}
+                        </ion-note>
+                    </ion-col>
+                </ion-row>
+
+            </ion-card>
+        </ion-item>
+    </ion-list>
+
+    <ion-fab right bottom>
+        <button ion-fab color="primary"><ion-icon name="create" (click)="createReview()"></ion-icon></button>
+    </ion-fab>
+</ion-content>

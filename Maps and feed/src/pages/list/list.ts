@@ -23,7 +23,11 @@ export class ListPage {
   User: string
   bar: Bar = new Bar()
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public locations: Locations, private alertCtrl: AlertController, public af: AngularFire) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public locations: Locations,
+    private alertCtrl: AlertController,
+    public af: AngularFire) {
     this.User = this.navParams.get('userName');
   }
 

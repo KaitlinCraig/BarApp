@@ -31,7 +31,7 @@ export class MappingsService {
         return bars;
     }
 
-    getThread(snapshot: any, key: string): IBar {
+    getBar(snapshot: any, key: string): IBar {
 
         let bar: IBar = {
             key: key,
