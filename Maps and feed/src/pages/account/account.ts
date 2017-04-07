@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { AuthProvider } from '../../providers/auth-provider'; //added AuthProvider
 import { SignupPage } from '../signup/signup' //Added sign up page
 import { ResetPasswordPage } from '../reset-password/reset-password' //Added reset password page
+import { ListPage } from '../list/list';
+import { HomePage } from '../home/home';
 /*
   Generated class for the Account page.
 
@@ -45,6 +47,9 @@ export class AccountPage {
      login(): void {
         if(this.loginForm.valid) {
           var credentials = ({email: this.email.value, password: this.password.value});
+
+          // this.navCtrl.push(HomePage, {userName: this.auth.currentUser})
+
           this.auth.loginWithEmail(credentials).subscribe(data => {
             console.log(data);
           }, error=>{             //Added next lines for handling unknown users

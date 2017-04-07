@@ -1,14 +1,14 @@
 import { Component} from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Locations } from '../../providers/locations';
 import { AlertController } from 'ionic-angular';
 import { AngularFire } from 'angularfire2';
+import { ReviewPage } from '../review/review';
 
 class Bar {
   barName: string
-  barRating: string
   id: string
-
+  user: string
 
   constructor() {
 
@@ -20,23 +20,16 @@ class Bar {
   templateUrl: 'list.html'
 })
 export class ListPage {
+  User: string
   bar: Bar = new Bar()
 
-  constructor(public navCtrl: NavController, public locations: Locations, private alertCtrl: AlertController, public af: AngularFire) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public locations: Locations, private alertCtrl: AlertController, public af: AngularFire) {
+    this.User = this.navParams.get('userName');
+  }
 
   ionViewDidLoad() {
     console.log('Hello ListPage Page');
   }
-
-//   public open(event, location) {
-//   event.stopPropagation();
-//   alert('Open ' + location.name);
-// }
-//
-//   public download(event, location) {
-//   event.stopPropagation();
-//   alert('Download ' + location.name);
-// }
 
 presentAlert(location) {
   let alert = this.alertCtrl.create({
@@ -50,9 +43,12 @@ presentAlert(location) {
 submit(location) {
   this.bar.barName = location.name;
   this.bar.id = location.id;
-  this.af.database.list('/bars').push(this.bar)
-  this.bar = new Bar()
-
+  this.bar.user = this.User;
+  //this.af.database.list('/bars').push(this.bar)
+  this.navCtrl.push(ReviewPage, {barName: this.bar.barName, barId: this.bar.id, userName: this.bar.user})
+  //this.bar = new Bar()
   // this.navCtrl.parent.select(3)
 }
+
+
 }

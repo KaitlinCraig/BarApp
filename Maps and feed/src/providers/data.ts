@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject} from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+
+
 /*
   Generated class for the Data provider.
 
   See https://angular.io/docs/ts/latest/guide/dependency-injection.html
   for more info on providers and Angular 2 DI.
 */
+
 @Injectable()
 export class Data {
 
@@ -13,6 +17,8 @@ export class Data {
   constructor() {
 
   }
+
+
   get Posts() {
     return this.posts;
   }

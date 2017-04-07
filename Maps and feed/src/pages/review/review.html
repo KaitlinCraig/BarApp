@@ -1,0 +1,69 @@
+<!--
+  Generated template for the Review page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+     <ion-title>{{BarName}} Review</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <p>{{BarId}}<p>
+
+    <!-- <ion-slides (ionSlideDidChange)="slideChanged()">
+      <ion-slide>
+        <h1>Slide 1</h1>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 2</h1>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 3</h1>
+      </ion-slide>
+    </ion-slides> -->
+
+<ion-list>
+ <ion-item>
+   <ion-label>Hotness:</ion-label>
+   <ion-range min="1" max="10" step="1" pin="true" [(ngModel)]="bar.hotness">
+     <ion-icon small range-left name="md-sad"></ion-icon>
+     <ion-icon range-right name="md-happy"></ion-icon>
+   </ion-range>
+ </ion-item>
+
+  <ion-item>
+    <ion-label>Age Range:</ion-label>
+    <ion-range dualKnobs="true" [(ngModel)]="bar.ageRage" min="21" max="70" step="1" pin="true"></ion-range>
+  </ion-item>
+</ion-list>
+
+<button (click)="submit()" ion-button width="250px" block icon-left>
+  <ion-icon name="md-done-all"></ion-icon>
+  Submit
+</button>
+
+<ion-card *ngFor= "let card of bars | async">
+  <ion-card-content>
+    <ion-card-title>
+      {{card.barName}}
+    </ion-card-title>
+    <p>
+      {{card.hotness}}
+    </p>
+    <p>
+      {{card.ageRange}}
+    </p>
+    <p>
+      {{card.user}}
+    </p>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>

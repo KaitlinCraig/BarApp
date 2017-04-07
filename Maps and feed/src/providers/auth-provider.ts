@@ -96,4 +96,8 @@ export class AuthProvider {
   get currentUser():string{
     return this.authState?this.authState.auth.email:'';
   }
+
+  // getLoggedInUser() {
+  //       return firebase.auth().currentUser;
+  //   }
 }
