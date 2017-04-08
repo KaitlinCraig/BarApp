@@ -4,7 +4,7 @@ import { NavController, ModalController, ToastController, Content, Events } from
 import { IBar } from '../../interfaces';
 import { BarCreatePage } from '../bar-create/bar-create';
 import { BarReviewsPage } from '../bar-reviews/bar-reviews';
-import { AuthProvider } from '../../providers/auth-provider';
+import { AuthService } from '../../providers/auth-service';
 import { DataService } from '../../providers/data.service';
 import { MappingsService } from '../../providers/mappings.service';
 import { ItemsService } from '../../providers/items.service';
@@ -32,7 +32,7 @@ export class BarsPage implements OnInit {
   constructor(public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
-    public authService: AuthProvider,
+    public authService: AuthService,
     public dataService: DataService,
     public sqliteService: SqliteService,
     public mappingsService: MappingsService,
@@ -43,7 +43,7 @@ export class BarsPage implements OnInit {
     var self = this;
     self.segment = 'all';
     self.events.subscribe('network:connected', self.networkConnected);
-    self.events.subscribe('threads:add', self.addNewBars);
+    self.events.subscribe('bars:add', self.addNewBars);
 
     self.checkFirebase();
   }
@@ -63,7 +63,7 @@ export class BarsPage implements OnInit {
         }
       }, 1000);
     } else {
-      console.log('Firebase connection found (threads.ts) - attempt: ' + self.firebaseConnectionAttempts);
+      console.log('Firebase connection found (bars.ts) - attempt: ' + self.firebaseConnectionAttempts);
       self.dataService.getStatisticsRef().on('child_changed', self.onBarAdded);
       if (self.authService.getLoggedInUser() === null) {
         //

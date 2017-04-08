@@ -48,9 +48,9 @@ export class SqliteService {
         var self = this;
         let query = 'DELETE FROM Bars';
         self.db.executeSql(query, {}).then((data) => {
-            console.log('Threads removed');
+            console.log('Bars removed');
         }, (err) => {
-            console.error('Unable to remove Threads: ', err);
+            console.error('Unable to remove Bars: ', err);
         });
     }
 
@@ -58,9 +58,9 @@ export class SqliteService {
         var self = this;
         let query = 'DELETE FROM Reviews';
         self.db.executeSql(query, {}).then((data) => {
-            console.log('Comments removed');
+            console.log('Reviews removed');
         }, (err) => {
-            console.error('Unable to remove Commments: ', err);
+            console.error('Unable to remove Reviews: ', err);
         });
     }
 
@@ -75,26 +75,26 @@ export class SqliteService {
                     console.log(data.rows.item(i).question);
                 }
             } else {
-                console.log('no threads found..');
+                console.log('no bars found..');
             }
         }, (err) => {
-            console.error('Unable to print threads: ', err);
+            console.error('Unable to print bars: ', err);
         });
     }
 
     createBars() {
         var self = this;
-        self.db.executeSql('CREATE TABLE IF NOT EXISTS Bars ( key VARCHAR(255) PRIMARY KEY NOT NULL, title text NOT NULL, question text NOT NULL, category text NOT NULL, datecreated text, USER VARCHAR(255), comments INT NULL);', {}).then(() => {
+        self.db.executeSql('CREATE TABLE IF NOT EXISTS Bars ( key VARCHAR(255) PRIMARY KEY NOT NULL, title text NOT NULL, question text NOT NULL, category text NOT NULL, datecreated text, USER VARCHAR(255), reviews INT NULL);', {}).then(() => {
         }, (err) => {
-            console.error('Unable to create Threads table: ', err);
+            console.error('Unable to create Bars table: ', err);
         });
     }
 
     createReviews() {
         var self = this;
-        self.db.executeSql('CREATE TABLE IF NOT EXISTS Reviews ( key VARCHAR(255) PRIMARY KEY NOT NULL, thread VARCHAR(255) NOT NULL, text text NOT NULL, USER VARCHAR(255) NOT NULL, datecreated text, votesUp INT NULL, votesDown INT NULL);', {}).then(() => {
+        self.db.executeSql('CREATE TABLE IF NOT EXISTS Reviews ( key VARCHAR(255) PRIMARY KEY NOT NULL, bar VARCHAR(255) NOT NULL, text text NOT NULL, USER VARCHAR(255) NOT NULL, datecreated text, votesUp INT NULL, votesDown INT NULL);', {}).then(() => {
         }, (err) => {
-            console.error('Unable to create Comments table: ', err);
+            console.error('Unable to create Reviews table: ', err);
         });
     }
 

@@ -3,7 +3,7 @@ import { ActionSheetController, ModalController, ToastController, LoadingControl
 
 import { ReviewCreatePage } from '../review-create/review-create';
 import { IReview } from '../../interfaces';
-import { AuthProvider } from '../../providers/auth-provider';
+import { AuthService } from '../../providers/auth-service';
 import { DataService } from '../../providers/data.service';
 import { ItemsService } from '../../providers/items.service';
 import { MappingsService } from '../../providers/mappings.service';
@@ -22,7 +22,7 @@ export class BarReviewsPage implements OnInit {
         public toastCtrl: ToastController,
         public loadingCtrl: LoadingController,
         public navParams: NavParams,
-        public authService: AuthProvider,
+        public authService: AuthService,
         public itemsService: ItemsService,
         public dataService: DataService,
         public mappingsService: MappingsService) { }

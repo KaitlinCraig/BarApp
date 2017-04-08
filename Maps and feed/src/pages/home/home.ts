@@ -7,7 +7,7 @@ import { FeedPage } from '../feed/feed';
 
 import {BarsPage} from '../bars/bars';
 import { ProfilePage } from '../profile/profile';
-import { AuthProvider } from '../../providers/auth-provider';
+import { AuthService } from '../../providers/auth-service';
 import {Component, OnInit, ViewChild } from '@angular/core';
 import { NavController, Events, Tabs } from 'ionic-angular';
 
@@ -30,7 +30,7 @@ export class HomePage implements OnInit{
   // tab4Root: any = FeedPage;
 
   constructor(public navCtrl: NavController,
-        public authService: AuthProvider,
+        public authService: AuthService,
         public events: Events){
         this.barsPage = BarsPage;
         this.profilePage = ProfilePage;

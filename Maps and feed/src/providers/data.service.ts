@@ -59,7 +59,7 @@ export class DataService {
       private InitData() {
           let self = this;
           // Set statistics/threads = 1 for the first time only
-          self.getStatisticsRef().child('threads').transaction(function (currentRank) {
+          self.getStatisticsRef().child('bars').transaction(function (currentRank) {
               if (currentRank === null) {
                   return 1;
               }
@@ -175,8 +175,8 @@ export class DataService {
 
           return this.barsRef.child(barKey + '/reviews').once('value')
               .then((snapshot) => {
-                  let numberOfComments = snapshot == null ? 0 : snapshot.val();
-                  this.barsRef.child(barKey + '/reviews').set(numberOfComments + 1);
+                  let numberOfReviews = snapshot == null ? 0 : snapshot.val();
+                  this.barsRef.child(barKey + '/reviews').set(numberOfReviews + 1);
               });
       }
 

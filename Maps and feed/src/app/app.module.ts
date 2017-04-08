@@ -18,7 +18,7 @@ import { AccountPage } from '../pages/account/account';
 import { AuthProvider} from '../providers/auth-provider'  //Added AuthProvider
 import { SignupPage } from '../pages/signup/signup'; //Added signup page
 import { ResetPasswordPage } from '../pages/reset-password/reset-password'; //Added reset password page
-import { ReviewPage } from '../pages/review/review';
+// import { ReviewPage } from '../pages/review/review';
 import { BarCreatePage } from '../pages/bar-create/bar-create';
 import { ReviewCreatePage } from '../pages/review-create/review-create';
 import { BarReviewsPage } from '../pages/bar-reviews/bar-reviews';
@@ -30,6 +30,8 @@ import { ItemsService } from '../providers/items.service';
 import { SqliteService } from '../providers/sqlite.service';
 import { MappingsService } from '../providers/mappings.service';
 import { DataService } from '../providers/data.service';
+import { AuthService } from '../providers/auth-service';
+import { LoginPage } from '../pages/login/login';
 
 const config = {
     apiKey: "AIzaSyD6qBJuMZmh8ouKycWIGRC85gs3GoPV_ec",
@@ -51,14 +53,15 @@ const config = {
     AccountPage,
     SignupPage,  //Added signup page
     ResetPasswordPage, //Added
-    ReviewPage,
+    // ReviewPage,
     BarCreatePage,
     ReviewCreatePage,
     BarReviewsPage,
     BarComponent,
     UserAvatarComponent,
     BarsPage,
-    ProfilePage
+    ProfilePage,
+    LoginPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -78,12 +81,13 @@ const config = {
     AccountPage,
     SignupPage,  //Added signup page
     ResetPasswordPage, //Added
-    ReviewPage,
+    // ReviewPage,
     BarCreatePage,
     ReviewCreatePage,
     BarReviewsPage,
     BarsPage,
-    ProfilePage
+    ProfilePage,
+    LoginPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
     Locations,
@@ -91,6 +95,7 @@ const config = {
     Connectivity,
     Data,
     AuthProvider,
+    AuthService,
     DataService,
     ItemsService,
     SqliteService,

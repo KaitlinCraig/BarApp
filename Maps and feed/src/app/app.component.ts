@@ -7,10 +7,13 @@ import { HomePage } from '../pages/home/home';
 
 import { SettingsPage } from '../pages/settings/settings';
 import { AccountPage } from '../pages/account/account';
+import { SignupPage } from '../pages/signup/signup';
+import { LoginPage } from '../pages/login/login';
 import { BarsPage } from '../pages/bars/bars';
 import { DataService } from '../providers/data.service';
 import { AuthProvider } from '../providers/auth-provider';
 import { SqliteService } from '../providers/sqlite.service';
+import { AuthService } from '../providers/auth-service';
 
 declare var window: any;
 
@@ -22,7 +25,7 @@ export class MyApp implements OnInit{
   // @ViewChild(Nav) nav: Nav;
 
   public rootPage: any;
-  public loginPage: AccountPage;
+  public loginPage: LoginPage;
 
   connectSubscription: Subscription;
 
@@ -33,7 +36,7 @@ export class MyApp implements OnInit{
 
   constructor(platform: Platform,
     public dataService: DataService,
-    public authService: AuthProvider,
+    public authService: AuthService,
     public sqliteService: SqliteService,
     public menu: MenuController,
     public events: Events,
@@ -134,7 +137,7 @@ export class MyApp implements OnInit{
         self.menu.close();
         //self.nav.setRoot(LoginPage);
 
-        let loginodal = self.modalCtrl.create(AccountPage);
+        let loginodal = self.modalCtrl.create(LoginPage);
         loginodal.present();
       }
     });
@@ -146,15 +149,15 @@ export class MyApp implements OnInit{
     this.menu.close();
 
     if (page === 'signup') {
-      if (!(viewCtrl.instance instanceof AccountPage))
-        this.nav.push(AccountPage);
+      if (!(viewCtrl.instance instanceof SignupPage))
+        this.nav.push(SignupPage);
     }
   }
 
   signout() {
     var self = this;
     self.menu.close();
-    self.authService.logout();
+    self.authService.signOut();
   }
 
   isUserLoggedIn(): boolean {

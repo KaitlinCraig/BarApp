@@ -3,7 +3,7 @@ import { NavController, ViewController, LoadingController } from 'ionic-angular'
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 
 import { IBar } from '../../interfaces';
-import { AuthProvider } from  '../../providers/auth-provider';
+import { AuthService } from  '../../providers/auth-service';
 import { DataService } from '../../providers/data.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class BarCreatePage implements OnInit {
     public loadingCtrl: LoadingController,
     public viewCtrl: ViewController,
     public fb: FormBuilder,
-    public authService: AuthProvider,
+    public authService: AuthService,
     public dataService: DataService) { }
 
   ngOnInit() {

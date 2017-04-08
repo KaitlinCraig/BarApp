@@ -61,7 +61,7 @@ export class MappingsService {
             reviews.push({
                 key: key,
                 text: review.text,
-                bar: review.thread,
+                bar: review.bar,
                 dateCreated: review.dateCreated,
                 user: review.user,
                 votesUp: this.itemsService.groupByBoolean(review.votes, true),

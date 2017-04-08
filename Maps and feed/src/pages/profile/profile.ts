@@ -3,7 +3,7 @@ import {NavController, LoadingController, ActionSheetController } from 'ionic-an
 import { Camera, CameraOptions } from 'ionic-native';
 
 import { IUser } from '../../interfaces';
-import { AuthProvider } from '../../providers/auth-provider';
+import { AuthService } from '../../providers/auth-service';
 import { DataService } from '../../providers/data.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class ProfilePage implements OnInit {
   constructor(public navCtrl: NavController,
     public loadingCtrl: LoadingController,
     public actionSheeCtrl: ActionSheetController,
-    public authService: AuthProvider,
+    public authService: AuthService,
     public dataService: DataService) { }
 
   ngOnInit() {

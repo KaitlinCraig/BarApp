@@ -9,8 +9,8 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
-    <div *ngIf="!commentsLoaded">
+<ion-content padding>
+    <div *ngIf="!reviewsLoaded">
         <img src="assets/images/ring.gif" style="display:block; margin:auto" />
     </div>
     <ion-list *ngIf="reviewsLoaded">
@@ -31,7 +31,7 @@
 
                 <ion-row class="left-border-primary">
                     <ion-col>
-                        <button ion-button primary clear small (click)="vote(true,reviewt)">
+                        <button ion-button primary clear small (click)="vote(true,review)">
         <ion-icon name="arrow-dropup"></ion-icon>
         <div>{{review.votesUp}}</div>
       </button>
@@ -53,7 +53,13 @@
         </ion-item>
     </ion-list>
 
-    <ion-fab right bottom>
+    <!-- <ion-fab right bottom> -->
+
+        <button ion-button color="primary"  class="custom-button" (click)="createReview()" block>Create Review</button>
+
+    <!-- </ion-fab> -->
+
+    <!-- <ion-fab right bottom>
         <button ion-fab color="primary"><ion-icon name="create" (click)="createReview()"></ion-icon></button>
-    </ion-fab>
+    </ion-fab> -->
 </ion-content>
