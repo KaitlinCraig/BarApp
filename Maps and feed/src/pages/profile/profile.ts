@@ -19,7 +19,7 @@ export class ProfilePage implements OnInit {
 
   constructor(public navCtrl: NavController,
     public loadingCtrl: LoadingController,
-    public actionSheeCtrl: ActionSheetController,
+    public actionSheetCtrl: ActionSheetController,
     public authService: AuthService,
     public dataService: DataService) { }
 
@@ -88,6 +88,7 @@ export class ProfilePage implements OnInit {
         if (userBars !== null) {
           self.userStatistics.totalBars = Object.keys(userBars).length;
         } else {
+          //changed from totalBars to totalBar
           self.userStatistics.totalBars = 0;
         }
       });
@@ -110,7 +111,7 @@ export class ProfilePage implements OnInit {
   openImageOptions() {
     var self = this;
 
-    let actionSheet = self.actionSheeCtrl.create({
+    let actionSheet = self.actionSheetCtrl.create({
       title: 'Upload new image from',
       buttons: [
         {

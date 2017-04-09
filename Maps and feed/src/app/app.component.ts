@@ -6,12 +6,12 @@ import { Subscription } from '../../node_modules/rxjs/Subscription';
 import { HomePage } from '../pages/home/home';
 
 import { SettingsPage } from '../pages/settings/settings';
-import { AccountPage } from '../pages/account/account';
+// import { AccountPage } from '../pages/account/account';
 import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
-import { BarsPage } from '../pages/bars/bars';
+// import { BarsPage } from '../pages/bars/bars';
 import { DataService } from '../providers/data.service';
-import { AuthProvider } from '../providers/auth-provider';
+// import { AuthProvider } from '../providers/auth-provider';
 import { SqliteService } from '../providers/sqlite.service';
 import { AuthService } from '../providers/auth-service';
 

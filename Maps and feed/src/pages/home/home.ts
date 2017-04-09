@@ -21,6 +21,10 @@ export class HomePage implements OnInit{
   public barsPage: any;
   public profilePage: any;
 
+  //Added code for integration
+  public mapPage: any;
+  public listPage: any;
+
   public newBars: string = '';
   public selectedTab: number = -1;
 
@@ -34,6 +38,8 @@ export class HomePage implements OnInit{
         public events: Events){
         this.barsPage = BarsPage;
         this.profilePage = ProfilePage;
+        this.mapPage = MapPage;
+        this.listPage = ListPage;
   }
 
   ngOnInit() {
