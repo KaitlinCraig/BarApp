@@ -13,7 +13,8 @@ $font-path: "../assets/fonts";
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
 
-
+$text-color:        #000;
+$background-color:  #fff;
 
 // Named Color Variables
 // --------------------------------------------------
@@ -24,11 +25,12 @@ $font-path: "../assets/fonts";
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #7E57C2,
-  secondary:  #673AB7,
-  danger:     #B388FF,
-  light:      #F5F5F5,
-  dark:       #212121
+primary:    #0087be,
+secondary:  #32db64,
+danger:     #f53d3d,
+light:      #f4f4f4,
+dark:       #222,
+favorite:   #69BB7B
 );
 
 
@@ -87,9 +89,43 @@ $colors: (
 
 @import "ionic.ionicons";
 
+$ionicons-font-path: "../assets/fonts";
+@import "ionicons";
+
+
+//$toolbar-background : #0087be;
+//$list-background-color : white;
+$card-ios-background-color: #f4f4f4;
+$card-md-background-color: #f4f4f4;
+$card-wp-background-color: #f4f4f4;
+scroll-content { background-color: whitesmoke;}
+ion-list .item .item-inner {
+    background: whitesmoke;
+}
+.item {
+    background-color: whitesmoke !important;
+}
+
+ion-card {
+    background: white !important;
+}
+
+.left-border-primary {
+    border-left: 4px solid #0087be;
+}
+
+.segment-md .segment-button {
+    color:black !important;
+}
+
 
 // Fonts
 // --------------------------------------------------
 
 @import "roboto";
 @import "noto-sans";
+
+@import "../pages/home/home";
+@import "../pages/bars/bars";
+@import "../pages/bar-create/bar-create";
+@import "../pages/bar-reviews/bar-reviews";

@@ -20,7 +20,7 @@
                 <ion-input type="password" value="" [formControl]="password"></ion-input>
             </ion-item>
             <div *ngIf="password.hasError('required') && password.touched" class="error-box">* Password is required.</div>
-            <div *ngIf="password.hasError('minlength') && password.touched" class="error-box">* Minimum password length is 5.</div>
+            <div *ngIf="password.hasError('minlength') && password.touched" class="error-box">* Minimum password length is 6.</div>
         </ion-list>
         <ion-list>
             <ion-list-header>
@@ -31,7 +31,7 @@
                 <ion-input type="text" value="" [formControl]="username"></ion-input>
             </ion-item>
             <div *ngIf="username.hasError('required') && username.touched" class="error-box">* Username is required.</div>
-            <div *ngIf="username.hasError('minlength') && username.touched" class="error-box">* Minimum password length is 8.</div>
+            <div *ngIf="username.hasError('minlength') && username.touched" class="error-box">* Minimum username length is 8.</div>
             <ion-item>
                 <ion-label>Date of Birth</ion-label>
                 <ion-datetime displayFormat="MMM DD YYYY" [formControl]="dateOfBirth"></ion-datetime>

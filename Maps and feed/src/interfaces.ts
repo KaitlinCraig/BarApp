@@ -3,6 +3,7 @@ export interface IBar {
     title: string;
     question: string;
     category: string;
+    musicCategory: string;
     dateCreated: string;
     user: IUser;
     reviews: number;

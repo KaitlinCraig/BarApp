@@ -21,12 +21,15 @@
             <ion-col>
                 <button color="primary" clear small (click)="viewReviews(bar.key)">
         <ion-icon name="quote"></ion-icon>
-        <div>{{bar.reviews}} Reviews</div>
+        <div>{{bar.reviews}} Comments</div>
       </button>
             </ion-col>
             <ion-col center text-center>
                 <ion-note>
                     {{bar.category}}
+                </ion-note>
+                <ion-note>
+                    {{bar.musicCategory}}
                 </ion-note>
             </ion-col>
         </ion-row>

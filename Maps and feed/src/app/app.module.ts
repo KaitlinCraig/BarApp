@@ -33,12 +33,21 @@ import { DataService } from '../providers/data.service';
 import { AuthService } from '../providers/auth-service';
 import { LoginPage } from '../pages/login/login';
 
-const config = {
-    apiKey: "AIzaSyD6qBJuMZmh8ouKycWIGRC85gs3GoPV_ec",
-    authDomain: "barapp-90893.firebaseapp.com",
-    databaseURL: "https://barapp-90893.firebaseio.com",
-    storageBucket: "barapp-90893.appspot.com",
-    messagingSenderId: "330038628477"
+// const config = {
+//     apiKey: "AIzaSyD6qBJuMZmh8ouKycWIGRC85gs3GoPV_ec",
+//     authDomain: "barapp-90893.firebaseapp.com",
+//     databaseURL: "https://barapp-90893.firebaseio.com",
+//     storageBucket: "barapp-90893.appspot.com",
+//     messagingSenderId: "330038628477"
+//   };
+
+  const config = {
+    apiKey: "AIzaSyDP9Uq2kpJKOh7G2H3uKYRQBLa3WjDRWYQ",
+    authDomain: "forumapp-25fec.firebaseapp.com",
+    databaseURL: "https://forumapp-25fec.firebaseio.com",
+    projectId: "forumapp-25fec",
+    storageBucket: "forumapp-25fec.appspot.com",
+    messagingSenderId: "431277272266"
   };
 
 @NgModule({

@@ -3,7 +3,8 @@
     <button ion-button menuToggle>
       <ion-icon name='menu'></ion-icon>
     </button>
-    <ion-segment [(ngModel)]="segment" (ionChange)="filterBars(segment)">
+
+    <ion-segment  [(ngModel)]="segment" (ionChange)="filterBars(segment)">
       <ion-segment-button value="all">
         All
       </ion-segment-button>

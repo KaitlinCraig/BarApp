@@ -11,30 +11,49 @@
 
 <ion-content padding>
     <form [formGroup]="createBarForm" (ngSubmit)="onSubmit(createBarForm.value)">
+
         <ion-item [class.error]="!title.valid && title.touched">
             <ion-label floating>Title</ion-label>
             <ion-input type="text" value="" [formControl]="title"></ion-input>
         </ion-item>
-        <div *ngIf="title.hasError('required') && title.touched" class="error-box">* Title is required.</div>
-        <div *ngIf="title.hasError('minlength') && title.touched" class="error-box">* Minimum password length is 8.</div>
+        <div *ngIf="title.hasError('required') && title.touched" class="error-box">* Bar name is required.</div>
+        <div *ngIf="title.hasError('minlength') && title.touched" class="error-box">* Type at least 3 characters.</div>
+
         <ion-item [class.error]="!question.valid && question.touched">
             <ion-label floating>Question</ion-label>
             <ion-textarea [formControl]="question" rows="6"></ion-textarea>
         </ion-item>
-        <div *ngIf="question.hasError('required') && question.touched" class="error-box">* Question is required.</div>
-        <div *ngIf="question.hasError('minlength') && question.touched" class="error-box">* Type at least 100 characters.</div>
+        <div *ngIf="question.hasError('required') && question.touched" class="error-box">* Review is required.</div>
+        <div *ngIf="question.hasError('minlength') && question.touched" class="error-box">* Type at least 10 characters.</div>
+
         <ion-item>
             <ion-label>Category</ion-label>
             <ion-select multiple="false" [formControl]="category">
+                <ion-option value="Gay Bar">Gay Bar</ion-option>
                 <ion-option value="Hipster" checked="true">Hipster</ion-option>
-                <ion-option value="night club">Night Club</ion-option>
-                <ion-option value="gay bar">Gay Bar</ion-option>
-                <ion-option value="sports bar">Sports Bar</ion-option>
-                <ion-option value="jazz bar">Jazz Bar</ion-option>
+                <ion-option value="Night Club">Night Club</ion-option>
+                <ion-option value="Speak Easy">Speak Easy</ion-option>
+                <ion-option value="Sports Bar">Sports Bar</ion-option>
+                <ion-option value="Jazz Bar">Jazz Bar</ion-option>
             </ion-select>
         </ion-item>
         <div *ngIf="category.hasError('minlength')" class="error-box">* Select at least one category.</div>
         <br/><br/>
+
+        <ion-item>
+            <ion-label>Music</ion-label>
+            <ion-select multiple="false" [formControl]="musicCategory">
+                <ion-option value="Country" checked="true">Country</ion-option>
+                <ion-option value="Dance">Dance</ion-option>
+                <ion-option value="Electronic">Electronic</ion-option>
+                <ion-option value="Jazz">Jazz</ion-option>
+                <ion-option value="Rap">Rap</ion-option>
+                <ion-option value="Rock">Rock</ion-option>
+            </ion-select>
+        </ion-item>
+        <div *ngIf="musicCategory.hasError('minlength')" class="error-box">* Select at least one music category.</div>
+        <br/><br/>
+
         <button ion-button type="submit" class="custom-button" [disabled]="!createBarForm.valid" block>Submit</button>
     </form>
 </ion-content>

@@ -15,6 +15,7 @@ export class BarCreatePage implements OnInit {
   title: AbstractControl;
   question: AbstractControl;
   category: AbstractControl;
+  musicCategory: AbstractControl;
 
   constructor(public nav: NavController,
     public loadingCtrl: LoadingController,
@@ -26,14 +27,16 @@ export class BarCreatePage implements OnInit {
   ngOnInit() {
     console.log('in bar create..');
     this.createBarForm = this.fb.group({
-      'title': ['', Validators.compose([Validators.required, Validators.minLength(8)])],
+      'title': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'question': ['', Validators.compose([Validators.required, Validators.minLength(10)])],
-      'category': ['', Validators.compose([Validators.required, Validators.minLength(1)])]
+      'category': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+      'musicCategory': ['', Validators.compose([Validators.required, Validators.minLength(1)])]
     });
 
     this.title = this.createBarForm.controls['title'];
     this.question = this.createBarForm.controls['question'];
     this.category = this.createBarForm.controls['category'];
+    this.musicCategory = this.createBarForm.controls['musicCategory']
   }
 
   cancelNewBar() {
@@ -64,6 +67,7 @@ export class BarCreatePage implements OnInit {
             title: bar.title,
             question: bar.question,
             category: bar.category,
+            musicCategory: bar.musicCategory,
             user: { uid: uid, username: username },
             dateCreated: new Date().toString(),
             reviews: null

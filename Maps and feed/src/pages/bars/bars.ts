@@ -19,7 +19,8 @@ export class BarsPage implements OnInit {
   selectedSegment: string = this.segment;
   queryText: string = '';
   public start: number;
-  public pageSize: number = 3;
+  //Austin Note: This sets the number of bar reviews on the page
+  public pageSize: number = 19;
   public loading: boolean = true;
   public internetConnected: boolean = true;
 
@@ -90,6 +91,7 @@ export class BarsPage implements OnInit {
             title: data.rows.item(i).title,
             question: data.rows.item(i).question,
             category: data.rows.item(i).category,
+            musicCategory: data.rows.item(i).musicCategory,
             dateCreated: data.rows.item(i).datecreated,
             user: { uid: data.rows.item(i).user, username: data.rows.item(i).username },
             reviews: data.rows.item(i).reviews
