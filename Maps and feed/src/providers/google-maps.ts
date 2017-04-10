@@ -100,9 +100,9 @@ export class GoogleMaps {
       Geolocation.getCurrentPosition().then((position) => {
 
         // UNCOMMENT FOR NORMAL USE
-        let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        //let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-        //let latLng = new google.maps.LatLng(40.713744, -74.009056);
+        let latLng = new google.maps.LatLng(33.783315, -84.383117);
 
 
         let mapOptions = {

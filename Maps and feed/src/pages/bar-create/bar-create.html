@@ -12,6 +12,9 @@
 <ion-content padding>
     <form [formGroup]="createBarForm" (ngSubmit)="onSubmit(createBarForm.value)">
 
+
+<!-- START!!!!! THIS CODE ALLOWS THE USER TO TYPE IN WHATEVER BAR NAME THEY WANT IN THE REVIEWS SECTION-->
+
         <!-- <ion-item [class.error]="!title.valid && title.touched">
             <ion-label floating>Bar Name</ion-label>
             <ion-input type="text" value="" [formControl]="title"></ion-input>
@@ -19,7 +22,11 @@
         <div *ngIf="title.hasError('required') && title.touched" class="error-box">* Bar name is required.</div>
         <div *ngIf="title.hasError('minlength') && title.touched" class="error-box">* Type at least 3 characters.</div> -->
 
-<!-- ADDED -->
+<!-- END!!!! ->>
+
+
+<!-- ADDED April 10th, 2017
+      Allows users to select a bar title from a list of premade names-->
 <ion-item>
     <ion-label>Title</ion-label>
     <ion-select multiple="false" [formControl]="title">
@@ -45,7 +52,7 @@
     </ion-select>
 </ion-item>
 <div *ngIf="title.hasError('minlength')" class="error-box">* Select at least one category.</div>
-<!-- ADDED END -->
+<!-- ADDED April 10th, 2017 END -->
 
 
         <ion-item [class.error]="!question.valid && question.touched">
