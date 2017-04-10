@@ -23,6 +23,7 @@ export class MappingsService {
                 question: bar.question,
                 category: bar.category,
                 musicCategory: bar.musicCategory,
+                hotness: bar.hotness,
                 dateCreated: bar.dateCreated,
                 user: { uid: bar.user.uid, username: bar.user.username },
                 reviews: bar.reviews == null ? 0 : bar.reviews
@@ -40,6 +41,7 @@ export class MappingsService {
             question: snapshot.question,
             category: snapshot.category,
             musicCategory: snapshot.musicCategory,
+            hotness: snapshot.hotness,
             dateCreated: snapshot.dateCreated,
             user: snapshot.user,
             reviews: snapshot.reviews == null ? 0 : snapshot.reviews

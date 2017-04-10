@@ -1,6 +1,6 @@
 <<ion-header>
     <ion-navbar>
-        <ion-title>New Bar</ion-title>
+        <ion-title>New Review</ion-title>
         <ion-buttons start>
             <button ion-button (click)="cancelNewBar()">
         <ion-icon name="arrow-back"></ion-icon> Cancel
@@ -13,14 +13,14 @@
     <form [formGroup]="createBarForm" (ngSubmit)="onSubmit(createBarForm.value)">
 
         <ion-item [class.error]="!title.valid && title.touched">
-            <ion-label floating>Title</ion-label>
+            <ion-label floating>Bar Name</ion-label>
             <ion-input type="text" value="" [formControl]="title"></ion-input>
         </ion-item>
         <div *ngIf="title.hasError('required') && title.touched" class="error-box">* Bar name is required.</div>
         <div *ngIf="title.hasError('minlength') && title.touched" class="error-box">* Type at least 3 characters.</div>
 
         <ion-item [class.error]="!question.valid && question.touched">
-            <ion-label floating>Question</ion-label>
+            <ion-label floating>Review</ion-label>
             <ion-textarea [formControl]="question" rows="6"></ion-textarea>
         </ion-item>
         <div *ngIf="question.hasError('required') && question.touched" class="error-box">* Review is required.</div>
@@ -29,29 +29,49 @@
         <ion-item>
             <ion-label>Category</ion-label>
             <ion-select multiple="false" [formControl]="category">
+                <ion-option value="Comedy Club">Comedy Club</ion-option>
                 <ion-option value="Gay Bar">Gay Bar</ion-option>
-                <ion-option value="Hipster" checked="true">Hipster</ion-option>
+                <ion-option value="Hipster" checked="true">Hipster Bar</ion-option>
+                <ion-option value="Hookah Bar">Hookah Bar</ion-option>
+                <ion-option value="Irish Pub">Irish Pub</ion-option>
+                <ion-option value="Jazz Bar">Jazz Bar</ion-option>
+                <ion-option value="Karaoke Bar">Karaoke Bar</ion-option>
+                <ion-option value="Music Venue">Music Venue</ion-option>
                 <ion-option value="Night Club">Night Club</ion-option>
                 <ion-option value="Speak Easy">Speak Easy</ion-option>
                 <ion-option value="Sports Bar">Sports Bar</ion-option>
-                <ion-option value="Jazz Bar">Jazz Bar</ion-option>
             </ion-select>
         </ion-item>
         <div *ngIf="category.hasError('minlength')" class="error-box">* Select at least one category.</div>
-        <br/><br/>
+
 
         <ion-item>
             <ion-label>Music</ion-label>
             <ion-select multiple="false" [formControl]="musicCategory">
+                <ion-option value="Alternative" checked="true">Alternative</ion-option>
                 <ion-option value="Country" checked="true">Country</ion-option>
                 <ion-option value="Dance">Dance</ion-option>
+                <ion-option value="EDM" checked="true">EDM</ion-option>
                 <ion-option value="Electronic">Electronic</ion-option>
+                <ion-option value="Rap">Hip-Hop/Rap</ion-option>
                 <ion-option value="Jazz">Jazz</ion-option>
-                <ion-option value="Rap">Rap</ion-option>
+                <ion-option value="Latino">Latino</ion-option>
+                <ion-option value="Rap">R&B</ion-option>
                 <ion-option value="Rock">Rock</ion-option>
+                <ion-option value="Rap">'Hick'-Hop</ion-option>
             </ion-select>
         </ion-item>
         <div *ngIf="musicCategory.hasError('minlength')" class="error-box">* Select at least one music category.</div>
+
+        <!-- the name will probably be [formControl]="hotness" -->
+        <ion-item>
+          <ion-label>Hotness</ion-label>
+          <ion-range min="0" max="10" pin="true" [formControl]="hotness">
+            <ion-icon small range-left name="md-sad"></ion-icon>
+            <ion-icon range-right name="md-happy"></ion-icon>
+          </ion-range>
+        </ion-item>
+        <div *ngIf="hotness.hasError('minlength')" class="error-box">* Choose a hotness value between 1 and 10.</div>
         <br/><br/>
 
         <button ion-button type="submit" class="custom-button" [disabled]="!createBarForm.valid" block>Submit</button>

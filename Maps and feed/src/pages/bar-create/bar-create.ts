@@ -16,6 +16,7 @@ export class BarCreatePage implements OnInit {
   question: AbstractControl;
   category: AbstractControl;
   musicCategory: AbstractControl;
+  hotness: AbstractControl;
 
   constructor(public nav: NavController,
     public loadingCtrl: LoadingController,
@@ -30,13 +31,15 @@ export class BarCreatePage implements OnInit {
       'title': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'question': ['', Validators.compose([Validators.required, Validators.minLength(10)])],
       'category': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-      'musicCategory': ['', Validators.compose([Validators.required, Validators.minLength(1)])]
+      'musicCategory': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+      'hotness': ['', Validators.compose([Validators.required, Validators.minLength(0)])]
     });
 
     this.title = this.createBarForm.controls['title'];
     this.question = this.createBarForm.controls['question'];
     this.category = this.createBarForm.controls['category'];
-    this.musicCategory = this.createBarForm.controls['musicCategory']
+    this.musicCategory = this.createBarForm.controls['musicCategory'];
+    this.hotness = this.createBarForm.controls['hotness'];
   }
 
   cancelNewBar() {
@@ -68,6 +71,7 @@ export class BarCreatePage implements OnInit {
             question: bar.question,
             category: bar.category,
             musicCategory: bar.musicCategory,
+            hotness: bar.hotness,
             user: { uid: uid, username: username },
             dateCreated: new Date().toString(),
             reviews: null

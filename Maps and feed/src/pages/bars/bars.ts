@@ -92,6 +92,7 @@ export class BarsPage implements OnInit {
             question: data.rows.item(i).question,
             category: data.rows.item(i).category,
             musicCategory: data.rows.item(i).musicCategory,
+            hotness: data.rows.item(i).hotness,
             dateCreated: data.rows.item(i).datecreated,
             user: { uid: data.rows.item(i).user, username: data.rows.item(i).username },
             reviews: data.rows.item(i).reviews

@@ -77,6 +77,7 @@ export class DataService {
                       question: 'Congratulations! It seems that you have successfully setup the Forum app.',
                       category: 'welcome',
                       musicCategory: 'sauce',
+                      hotness: '10',
                       dateCreated: new Date().toString(),
                       user: { uid: 'default', username: 'Administrator' },
                       reviews: 0

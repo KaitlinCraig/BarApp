@@ -142,7 +142,7 @@ export class ProfilePage implements OnInit {
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: pictureSourceType,
       encodingType: Camera.EncodingType.PNG,
-      targetWidth: 400,
+      targetWidth: 300,
       targetHeight: 400,
       saveToPhotoAlbum: true,
       correctOrientation: true

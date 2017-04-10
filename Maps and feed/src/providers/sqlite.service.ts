@@ -84,7 +84,7 @@ export class SqliteService {
 
     createBars() {
         var self = this;
-        self.db.executeSql('CREATE TABLE IF NOT EXISTS Bars ( key VARCHAR(255) PRIMARY KEY NOT NULL, title text NOT NULL, question text NOT NULL, category text NOT NULL, musicCategory text NOT NULL, datecreated text, USER VARCHAR(255), reviews INT NULL);', {}).then(() => {
+        self.db.executeSql('CREATE TABLE IF NOT EXISTS Bars ( key VARCHAR(255) PRIMARY KEY NOT NULL, title text NOT NULL, question text NOT NULL, category text NOT NULL, musicCategory text NOT NULL, hotness text NOT NULL, datecreated text, USER VARCHAR(255), reviews INT NULL);', {}).then(() => {
         }, (err) => {
             console.error('Unable to create Bars table: ', err);
         });
@@ -144,13 +144,14 @@ export class SqliteService {
     addBar(bar: IBar) {
         var self = this;
 
-        let query: string = 'INSERT INTO Bars (key, title, question, category, musicCategory, datecreated, user, reviews) VALUES (?,?,?,?,?,?,?)';
+        let query: string = 'INSERT INTO Bars (key, title, question, category, musicCategory, hotness, datecreated, user, reviews) VALUES (?,?,?,?,?,?,?)';
         self.db.executeSql(query, [
             bar.key,
             bar.title,
             bar.question,
             bar.category,
             bar.musicCategory,
+            bar.hotness,
             bar.dateCreated,
             bar.user.uid,
             bar.reviews
