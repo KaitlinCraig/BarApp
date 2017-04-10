@@ -105,21 +105,22 @@ export class SignupPage implements OnInit {
     }
 
     CreateAndUploadDefaultImage() {
-        let self = this;
-        let imageData = 'assets/images/profile.png';
+     let self = this;
+     var url = 'assets/images/profile.png';
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', imageData, true);
-        xhr.responseType = 'blob';
-        // xhr.onload = function (e) {
-        //     if (this.status === 200) {
-        //         var myBlob = this.response;
-        //         // myBlob is now the blob that the object URL pointed to.
-        //         self.startUploading(myBlob);
-        //     }
-        // };
-        xhr.send();
-    }
+     var request = new XMLHttpRequest();
+     request.responseType = 'blob';
+     request.open("GET", url, true);
+     request.onload = function () {
+      if (request.status === 200) {
+        var myBlob = request.response;
+        self.startUploading(myBlob);
+       };
+     }
+    request.send();
+ }
+
+
 
     startUploading(file) {
 
