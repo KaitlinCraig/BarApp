@@ -30,8 +30,8 @@ export class BarCreatePage implements OnInit {
     this.createBarForm = this.fb.group({
       'title': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
       'question': ['', Validators.compose([Validators.required, Validators.minLength(10)])],
-      'category': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-      'musicCategory': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+      'category': ['', Validators.compose([Validators.required, Validators.minLength(0)])],
+      'musicCategory': ['', Validators.compose([Validators.required, Validators.minLength(0)])],
       'hotness': ['', Validators.compose([Validators.required, Validators.minLength(0)])]
     });
 
