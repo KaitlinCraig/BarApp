@@ -12,12 +12,41 @@
 <ion-content padding>
     <form [formGroup]="createBarForm" (ngSubmit)="onSubmit(createBarForm.value)">
 
-        <ion-item [class.error]="!title.valid && title.touched">
+        <!-- <ion-item [class.error]="!title.valid && title.touched">
             <ion-label floating>Bar Name</ion-label>
             <ion-input type="text" value="" [formControl]="title"></ion-input>
         </ion-item>
         <div *ngIf="title.hasError('required') && title.touched" class="error-box">* Bar name is required.</div>
-        <div *ngIf="title.hasError('minlength') && title.touched" class="error-box">* Type at least 3 characters.</div>
+        <div *ngIf="title.hasError('minlength') && title.touched" class="error-box">* Type at least 3 characters.</div> -->
+
+<!-- ADDED -->
+<ion-item>
+    <ion-label>Title</ion-label>
+    <ion-select multiple="false" [formControl]="title">
+        <ion-option value="Aloft Atlanta Downtown">Aloft Atlanta Downtown</ion-option>
+        <ion-option value="Atlanta Pride for Women Inc">Atlanta Pride for Women Inc</ion-option>
+        <ion-option value="Burkhart's">Burkhart's</ion-option>
+        <ion-option value="Chef Rob's Caribbean Cafe">Chef Rob's Caribbean Cafe</ion-option>
+        <ion-option value="Clermont Lounge">Clermont Lounge</ion-option>
+        <ion-option value="Compound">Compound</ion-option>
+        <ion-option value="Havana Club">Havana Club</ion-option>
+        <ion-option value="Johnny's Hideaway">Johnny's Hideaway</ion-option>
+        <ion-option value="Kat's Cafe">Kat's Cafe</ion-option>
+        <ion-option value="Lava Lounge">Lava Lounge</ion-option>
+        <ion-option value="Loca Luna">Loca Luna</ion-option>
+        <ion-option value="STK Atlanta">STK Atlanta</ion-option>
+        <ion-option value="Swinging Richards">Swinging Richards</ion-option>
+        <ion-option value="Tattletale Lounge">Tattletale Lounge</ion-option>
+        <ion-option value="The Cheetah">The Cheetah</ion-option>
+        <ion-option value="The Lobby Lounge">The Lobby Lounge</ion-option>
+        <ion-option value="The Mansion Elan">The Mansion Elan</ion-option>
+        <ion-option value="Tongue & Groove">Tongue & Groove</ion-option>
+        <ion-option value="Whiskey Blue">Whiskey Blue</ion-option>
+    </ion-select>
+</ion-item>
+<div *ngIf="title.hasError('minlength')" class="error-box">* Select at least one category.</div>
+<!-- ADDED END -->
+
 
         <ion-item [class.error]="!question.valid && question.touched">
             <ion-label floating>Review</ion-label>
@@ -31,7 +60,7 @@
             <ion-select multiple="false" [formControl]="category">
                 <ion-option value="Comedy Club">Comedy Club</ion-option>
                 <ion-option value="Gay Bar">Gay Bar</ion-option>
-                <ion-option value="Hipster" checked="true">Hipster Bar</ion-option>
+                <ion-option value="Hipster">Hipster Bar</ion-option>
                 <ion-option value="Hookah Bar">Hookah Bar</ion-option>
                 <ion-option value="Irish Pub">Irish Pub</ion-option>
                 <ion-option value="Jazz Bar">Jazz Bar</ion-option>

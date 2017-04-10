@@ -28,7 +28,7 @@ export class BarCreatePage implements OnInit {
   ngOnInit() {
     console.log('in bar create..');
     this.createBarForm = this.fb.group({
-      'title': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      'title': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
       'question': ['', Validators.compose([Validators.required, Validators.minLength(10)])],
       'category': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
       'musicCategory': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
