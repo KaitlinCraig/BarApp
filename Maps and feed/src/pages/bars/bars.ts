@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NavController, ModalController, ToastController, Content, Events } from 'ionic-angular';
+import { NavController, ModalController, NavParams, ToastController, Content, Events } from 'ionic-angular';
 
 import { IBar } from '../../interfaces';
 import { BarCreatePage } from '../bar-create/bar-create';
@@ -30,6 +30,10 @@ export class BarsPage implements OnInit {
 
   public firebaseConnectionAttempts: number = 0;
 
+  BarName: string
+  BarId: string
+  User: string
+
   constructor(public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -38,7 +42,12 @@ export class BarsPage implements OnInit {
     public sqliteService: SqliteService,
     public mappingsService: MappingsService,
     public itemsService: ItemsService,
-    public events: Events) { }
+    public events: Events,
+    public navParams: NavParams,) {
+
+      this.BarName = this.navParams.get('barName');
+      this.BarId = this.navParams.get('barId');
+      this.User = this.navParams.get('userName');}
 
   ngOnInit() {
     var self = this;
@@ -188,10 +197,21 @@ export class BarsPage implements OnInit {
     let startFrom: number = self.start - self.pageSize;
     if (startFrom < 0)
       startFrom = 0;
-    if (self.segment === 'all') {
+    if (self.segment === 'all' && self.BarName == null) {
       this.dataService.getBarsRef().orderByPriority().startAt(startFrom).endAt(self.start).once('value', function (snapshot) {
         self.itemsService.reversedItems<IBar>(self.mappingsService.getBars(snapshot)).forEach(function (bar) {
-          self.bars.push(bar);
+              self.bars.push(bar);
+        });
+        self.start -= (self.pageSize + 1);
+        self.events.publish('bars:viewed');
+        self.loading = false;
+      });
+    } else if (self.segment === 'all' && self.BarName != null) {
+      this.dataService.getBarsRef().orderByPriority().startAt(startFrom).endAt(self.start).once('value', function (snapshot) {
+        self.itemsService.reversedItems<IBar>(self.mappingsService.getBars(snapshot)).forEach(function (bar) {
+          if(self.BarName === bar.title)  {
+              self.bars.push(bar);
+          }
         });
         self.start -= (self.pageSize + 1);
         self.events.publish('bars:viewed');

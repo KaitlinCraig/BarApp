@@ -50,7 +50,7 @@ export class MyApp implements OnInit{
     //   { title: 'Account', component: AccountPage }
     // ];
 
-
+    // this.ngOnInit();
     var self = this;
     this.rootPage = HomePage;
 
@@ -126,7 +126,14 @@ export class MyApp implements OnInit{
   }
 
   ngOnInit() {
-
+  //   firebase.auth().onAuthStateChanged((user) => {
+  //     if (!user) {
+  //       this.nav.setRoot(HomePage);
+  //     }
+  //   });
+  //   this.platform.ready().then(() => {
+  //    StatusBar.styleDefault();
+  //  });
   }
 
   ngAfterViewInit() {
@@ -153,6 +160,10 @@ export class MyApp implements OnInit{
         this.nav.push(SignupPage);
     }
   }
+
+  // openMenu() {
+  // this.menu.open();
+  // }
 
   signout() {
     var self = this;

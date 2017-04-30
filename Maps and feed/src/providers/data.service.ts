@@ -120,6 +120,10 @@ export class DataService {
           return this.barsRef;
       }
 
+      getBarTitle() {
+          return this.barsRef.barName;
+      }
+
       getReviewsRef() {
           return this.reviewsRef;
       }

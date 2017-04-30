@@ -4,6 +4,7 @@ import { Locations } from '../../providers/locations';
 import { AlertController } from 'ionic-angular';
 import { AngularFire } from 'angularfire2';
 import { ReviewPage } from '../review/review';
+import { BarsPage } from '../bars/bars';
 
 class Bar {
   barName: string
@@ -49,7 +50,8 @@ submit(location) {
   this.bar.id = location.id;
   this.bar.user = this.User;
   //this.af.database.list('/bars').push(this.bar)
-  this.navCtrl.push(ReviewPage, {barName: this.bar.barName, barId: this.bar.id, userName: this.bar.user})
+  // this.navCtrl.push(ReviewPage, {barName: this.bar.barName, barId: this.bar.id, userName: this.bar.user})
+  this.navCtrl.push(BarsPage, {barName: this.bar.barName, barId: this.bar.id, userName: this.bar.user})
   //this.bar = new Bar()
   // this.navCtrl.parent.select(3)
 }

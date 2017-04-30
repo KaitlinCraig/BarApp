@@ -38,6 +38,8 @@ export class LoginPage implements OnInit {
         var self = this;
         if (this.loginFirebaseAccountForm.valid) {
 
+
+//THIS IS WHERE THE PROBLEM IS
             // let loader = this.loadingCtrl.create({
             //     content: 'Signing in firebase..',
             //     dismissOnPageChange: true
